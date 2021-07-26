@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SumOfTwoNumbers", "SumOfTwo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaterAndCharts", "WaterAndCharts\WaterAndCharts.csproj", "{289B245B-4E63-4DC0-B26A-3FA50ECFDA72}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrappingRainWater", "TrappingRainWater\TrappingRainWater.csproj", "{BCE2805A-B8A5-48E8-B230-928D10F1D6CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{289B245B-4E63-4DC0-B26A-3FA50ECFDA72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{289B245B-4E63-4DC0-B26A-3FA50ECFDA72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{289B245B-4E63-4DC0-B26A-3FA50ECFDA72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCE2805A-B8A5-48E8-B230-928D10F1D6CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCE2805A-B8A5-48E8-B230-928D10F1D6CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCE2805A-B8A5-48E8-B230-928D10F1D6CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCE2805A-B8A5-48E8-B230-928D10F1D6CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
