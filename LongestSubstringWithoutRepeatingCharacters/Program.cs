@@ -5,8 +5,8 @@ namespace LongestSubstringWithoutRepeatingCharacters {
     class Program {
         static void Main(string[] args) {
             string s1 = "abcbda";
-           Console.WriteLine(SlidingWindowSolution(s1));
-           
+            Console.WriteLine(SlidingWindowSolution(s1));
+
 
         }
 
@@ -16,16 +16,16 @@ namespace LongestSubstringWithoutRepeatingCharacters {
 
             while (R < s1.Length) {
                 if (!seen.ContainsKey(s1[R]) || seen[s1[R]] < L) {
-                    if (seen.ContainsKey(s1[R])) { seen.Remove(s1[R]); seen.Add(s1[R], R); }
+                    if (seen.ContainsKey(s1[R])) seen[s1[R]] = R;
                     else seen.Add(s1[R], R);
-                    max = Math.Max(max, R - L + 1); R++; 
+                    max = Math.Max(max, R - L + 1);
+                    R++;
                 }
                 else {
                     L = seen[s1[R]] + 1;
 
-                    seen.Remove(s1[R]);
-                                        
-                    seen.Add(s1[R], R);
+
+                    seen[s1[R]] = R;
                     R++;
                 }
             }
