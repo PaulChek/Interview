@@ -12,6 +12,7 @@ namespace TypedOutStrings {
         }
 
         private static bool Solution(string s1, string s2) {
+            //O(a+b); S(1)
             int p1 = s1.Length - 1, p2 = s2.Length - 1;
             int hash_acc2 = 0, hash_acc1 = 0;
            
@@ -46,6 +47,7 @@ namespace TypedOutStrings {
         }
 
         private static string RemHsh(string s) {
+            //O(a+b); S(a+b)
             var res2 = new List<char>();
             for (int i = 0; i < s.Length; i++) {
                 if (s[i] == '#') { if (res2.Count - 1 >= 0) res2.RemoveAt(res2.Count - 1); continue; }
