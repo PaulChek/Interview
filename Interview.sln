@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypedOutStrings", "TypedOut
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LongestSubstringWithoutRepeatingCharacters", "LongestSubstringWithoutRepeatingCharacters\LongestSubstringWithoutRepeatingCharacters.csproj", "{9A9B7FBA-122D-4158-917B-7041FC3E6D43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckIFpalindrome", "CheckIFpalindrome\CheckIFpalindrome.csproj", "{AE3DE600-758E-4B43-9EF3-75EB4BADD500}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlmostPalindrome", "AlmostPalindrome\AlmostPalindrome.csproj", "{9E96CDF6-4D5D-4FAD-8595-6BD4849DD39E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +47,14 @@ Global
 		{9A9B7FBA-122D-4158-917B-7041FC3E6D43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A9B7FBA-122D-4158-917B-7041FC3E6D43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A9B7FBA-122D-4158-917B-7041FC3E6D43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE3DE600-758E-4B43-9EF3-75EB4BADD500}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE3DE600-758E-4B43-9EF3-75EB4BADD500}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE3DE600-758E-4B43-9EF3-75EB4BADD500}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE3DE600-758E-4B43-9EF3-75EB4BADD500}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E96CDF6-4D5D-4FAD-8595-6BD4849DD39E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E96CDF6-4D5D-4FAD-8595-6BD4849DD39E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E96CDF6-4D5D-4FAD-8595-6BD4849DD39E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E96CDF6-4D5D-4FAD-8595-6BD4849DD39E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +65,8 @@ Global
 		{BCE2805A-B8A5-48E8-B230-928D10F1D6CE} = {6C38D875-70F5-4D9F-992A-4B8AF4AB1336}
 		{1A79AABA-F755-41E3-865A-17EA217FC9FE} = {2757B298-340A-418B-A390-D9170F0C72F6}
 		{9A9B7FBA-122D-4158-917B-7041FC3E6D43} = {2757B298-340A-418B-A390-D9170F0C72F6}
+		{AE3DE600-758E-4B43-9EF3-75EB4BADD500} = {2757B298-340A-418B-A390-D9170F0C72F6}
+		{9E96CDF6-4D5D-4FAD-8595-6BD4849DD39E} = {2757B298-340A-418B-A390-D9170F0C72F6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4E20287C-7337-49EC-BE95-FE8277EEB1E8}
