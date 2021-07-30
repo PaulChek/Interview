@@ -43,5 +43,6 @@ namespace AlmostPalindrome {
             return true;
 
         }
+
     }
 }
