@@ -20,7 +20,7 @@ namespace DoublyLinkedList {
                     tail.Child.Add(50);
                     tail.Child.Add(60);
                     tail.Child.Add(70);
-                }  
+                }
                 if (tail.Data == 5) {
                     tail.Child.Add(51);
                     tail.Child.Add(52);
@@ -32,14 +32,19 @@ namespace DoublyLinkedList {
 
             // dll.Print();
 
-            Console.WriteLine("flatten:");
-            dll.Flat();
+            //Console.WriteLine("flatten:");
+            
+            
+            dll.Flat2();
 
-            var c = dll.Head;
+            var c = dll.Tail;
             while (c != null) {
                 Console.WriteLine(c.Data);
-                c = c.Next;
+                c = c.Prev;
             }
+
+
+            // dll.Flat2();
         }
     }
     class DLList {
@@ -66,6 +71,7 @@ namespace DoublyLinkedList {
         }
 
         public void Flat() { var l = new DLList(); Flat(Head, l); Head = l.Head; Tail = l.Tail; }
+        public void Flat2() { Flat2Best(Head); }
 
         private void Flat(Node head, DLList l) {
             if (head == null) return;
@@ -75,6 +81,29 @@ namespace DoublyLinkedList {
             if (head.Child.Head != null) Flat(head.Child.Head, l);
 
             Flat(head.Next, l);
+
+        }
+        private void Flat2Best(Node head) {
+            if (head == null) return;
+
+
+            if ( head.Child.Head != null) {
+
+                var middle = new Node(head.Data, head.Prev, head.Child.Head);
+
+                head.Child.Tail.Next = head.Next;
+
+                head.Next.Prev = head.Child.Tail;
+
+                head.Child.Head.Prev = middle;
+
+                head.Prev.Next = middle;
+
+                Flat2Best(head.Child.Head);
+
+            }
+
+            Flat2Best(head.Next);
 
         }
     }
