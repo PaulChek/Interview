@@ -1,21 +1,23 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace ValidParentesis {
     class Program {
         static void Main(string[] args) {
-            string ps = "(({{{}}})[])";
+            string ps = "({{{}}})[])";
 
-            bool res = SolutionReg(ps);
+            bool res = Solution(ps);
 
             Console.WriteLine(res);
         }
 
         private static bool Solution(string s) {
+            var hs = new HashSet<char> {'{','[','(' };
             Stack b = new Stack();
             foreach (char p in s) {
-                if (p == '{' || p == '(' || p == '[') b.Push(p);
+                if (hs.Contains(p)) b.Push(p);
                 else {
                     if (b.Count == 0) return false;
                     var poped = (char)b.Pop();
