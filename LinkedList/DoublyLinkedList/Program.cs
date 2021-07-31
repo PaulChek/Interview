@@ -37,10 +37,10 @@ namespace DoublyLinkedList {
             
             dll.Flat2();
 
-            var c = dll.Tail;
+            var c = dll.Head;
             while (c != null) {
                 Console.WriteLine(c.Data);
-                c = c.Prev;
+                c = c.Next;
             }
 
 
@@ -99,8 +99,10 @@ namespace DoublyLinkedList {
 
                 head.Prev.Next = middle;
 
+
                 Flat2Best(head.Child.Head);
 
+                head.Child.Head = null;
             }
 
             Flat2Best(head.Next);
