@@ -6,15 +6,15 @@ using System.Text.RegularExpressions;
 namespace ValidParentesis {
     class Program {
         static void Main(string[] args) {
-            string ps = "({{{}}})[])";
+            string ps = "({{{}}}[])";
 
-            bool res = Solution(ps);
+            bool res = SolutionReg(ps);
 
             Console.WriteLine(res);
         }
 
         private static bool Solution(string s) {
-            var hs = new HashSet<char> {'{','[','(' };
+            var hs = new HashSet<char> { '{', '[', '(' };
             Stack b = new Stack();
             foreach (char p in s) {
                 if (hs.Contains(p)) b.Push(p);
@@ -27,6 +27,7 @@ namespace ValidParentesis {
             return b.Count == 0;
         }
 
-        private static bool SolutionReg(string s){ var z = Regex.Replace(s, @"\[\]|\{\}|\(\)", ""); return z == s ? z.Length == 0 : Solution(z);  }
+        private static bool SolutionReg(string s, string z = "") => (z = Regex.Replace(s, @"\[\]|\{\}|\(\)", "")) == s ? z.Length == 0 : Solution(z);
     }
 }
+
