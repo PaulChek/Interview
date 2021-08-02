@@ -7,8 +7,8 @@ namespace QuickSort {
 
             Console.WriteLine(string.Join(" ", arr));
 
-            QuickSort(arr, 0, arr.Length);
-
+            Console.WriteLine(FindKth.BiggestElement(arr, 3));
+         
             Console.WriteLine(string.Join(" ", arr));
         }
         static int MovePivot(int[] arr, int start, int end) {
@@ -22,9 +22,12 @@ namespace QuickSort {
             return p;
         }
 
-        static void QuickSort(int[] arr, int start, int end) {
+       public static void QuickSort(int[] arr, int start, int end, int k = 0) { // k modified for k-th biggest element
             if (start == end) return;
             var p = MovePivot(arr, start, end);
+
+            if (p == k) return;
+
             QuickSort(arr, p + 1, end);
             QuickSort(arr, start, p);
 
