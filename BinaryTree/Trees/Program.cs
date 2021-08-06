@@ -8,14 +8,17 @@ namespace Trees {
         static void Main(string[] args) {
             var tree = new BTree();
 
-            tree.Add(8);
-            tree.Add(2);
-            tree.Add(6);
-            tree.Add(7);
-            tree.Add(3);
-            tree.Add(12);
+            tree.Add(10);
+            tree.Add(5);
             tree.Add(1);
             tree.Add(0);
+            tree.Add(8);
+            tree.Add(7);
+            tree.Add(9);
+            tree.Add(2);
+            tree.Add(15);
+            tree.Add(11);
+            tree.Add(25);
 
             var res = new List<int[]>();
 
@@ -59,7 +62,9 @@ namespace Trees {
             Console.WriteLine("[" + string.Join(", ", res5) + "]");
 
 
-
+            Console.WriteLine("---------------Amount of nodes----------------");
+            var total = tree.AmountOfNodesInCompleteTree();
+            Console.WriteLine(">>>>>>>> (" + total + ") <<<<<<<");
         }
     }
     class BTree {
@@ -197,7 +202,7 @@ namespace Trees {
 
             if (node == null) return res;
 
-            if (res.Count  <= depth) res.Add(node.Data);
+            if (res.Count <= depth) res.Add(node.Data);
 
             depth++;
 
@@ -221,6 +226,49 @@ namespace Trees {
 
             return res;
 
+        }
+
+        public int AmountOfNodesInCompleteTree() {
+            if (Root == null) return 0;
+
+            var height = GetHeightOfFullTree(Root);
+
+            if (height == 0) return 1;
+
+            int beforeLastRowNodesCount = (int)Math.Pow(2, height) - 1;
+
+            int l = 0, r = beforeLastRowNodesCount;
+
+            while (l < r) {
+                var indexToFind = (int)Math.Ceiling((decimal)(l + r) / 2);
+
+                if (NodeExist(Root, indexToFind, height)) l = indexToFind;
+                else r = indexToFind - 1;
+
+            }
+
+
+            return beforeLastRowNodesCount + l + 1/*or r*/;
+        }
+
+        private bool NodeExist(Node node, int indexToFind, int height) {
+            int l = 0,
+                r = (int)Math.Pow(2, height) - 1;
+
+            while (height-- > 0) {
+                var middle = (int)Math.Ceiling((double)(l + r) / 2);
+
+                if (indexToFind < middle) { r = middle - 1; node = node.Left; }
+                else { l = middle; node = node.Right; }
+            }
+
+            return node != null;
+        }
+
+        private static int GetHeightOfFullTree(Node node, int depth = 0) {
+            if (node.Left == null) return depth;
+            var d = GetHeightOfFullTree(node.Left, depth + 1);
+            return d;
         }
     }
 }
