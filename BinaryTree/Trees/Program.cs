@@ -194,6 +194,20 @@ namespace Trees {
         }
 
         private List<int> RightView(Node node, List<int> res, int depth = 0) {
+
+            if (node == null) return res;
+
+            if (res.Count  <= depth) res.Add(node.Data);
+
+            depth++;
+
+            RightView(node.Right, res, depth);
+            RightView(node.Left, res, depth);
+
+            return res;
+
+        }
+        private List<int> RightViewMy(Node node, List<int> res, int depth = 0) {
             if (node == null) return res;
 
             if (res.Count > depth) res[depth] = node.Data;
@@ -201,8 +215,8 @@ namespace Trees {
 
             depth++;
 
-            RightView(node.Left, res, depth);
-            RightView(node.Right, res, depth);
+            RightViewMy(node.Left, res, depth);
+            RightViewMy(node.Right, res, depth);
 
 
             return res;
