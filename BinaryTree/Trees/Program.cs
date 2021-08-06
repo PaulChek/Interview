@@ -9,17 +9,11 @@ namespace Trees {
             var tree = new BTree();
 
             tree.Add(8);
-            tree.Add(-1);
-            tree.Add(-5);
-            tree.Add(-2);
-            tree.Add(10);
-            tree.Add(5);
             tree.Add(2);
             tree.Add(6);
             tree.Add(7);
             tree.Add(3);
             tree.Add(12);
-            tree.Add(15);
             tree.Add(1);
             tree.Add(0);
 
@@ -35,18 +29,37 @@ namespace Trees {
             var res2 = tree.LevelOrder2();
 
 
-            Console.WriteLine("--------Good My InDepth---------");
+            Console.WriteLine("--------Good My DFS---------");
 
 
             foreach (var item in res2)
                 Console.WriteLine($"[ {string.Join(", ", item)} ]");
 
-            Console.WriteLine("*********Good Bread First not my*********");
+            Console.WriteLine("*********Good BFS not my*********");
 
             var res3 = tree.LevelOrder3();
 
             foreach (var item in res3)
                 Console.WriteLine($"[ {string.Join(", ", item)} ]");
+
+
+
+            Console.WriteLine("---------------Right View DFS----------------");
+
+            var res4 = tree.RightView();
+
+
+            Console.WriteLine("[" + string.Join(", ", res4) + "]");
+
+            Console.WriteLine("---------------Right View BFS----------------");
+
+            var res5 = tree.RightViewBrfs();
+
+
+            Console.WriteLine("[" + string.Join(", ", res5) + "]");
+
+
+
         }
     }
     class BTree {
@@ -157,6 +170,43 @@ namespace Trees {
 
             }
             return res;
+        }
+        public List<int> RightView() => RightView(Root, new List<int>());
+        public List<int> RightViewBrfs() => RightViewBrfs(new List<int>());
+
+        private List<int> RightViewBrfs(List<int> list) {
+            var q = new Queue<Node>();
+            q.Enqueue(Root);
+            int qL = q.Count;
+
+            while (q.Count > 0) {
+                var cur = q.Dequeue();
+                qL--;
+
+                if (cur.Left != null) q.Enqueue(cur.Left);
+                if (cur.Right != null) q.Enqueue(cur.Right);
+
+                if (qL == 0) { list.Add(cur.Data); qL = q.Count; }
+            }
+
+
+            return list;
+        }
+
+        private List<int> RightView(Node node, List<int> res, int depth = 0) {
+            if (node == null) return res;
+
+            if (res.Count > depth) res[depth] = node.Data;
+            else res.Add(node.Data);
+
+            depth++;
+
+            RightView(node.Left, res, depth);
+            RightView(node.Right, res, depth);
+
+
+            return res;
+
         }
     }
 }
