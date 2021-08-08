@@ -98,16 +98,13 @@ namespace Trees {
 
         public bool IsBST() => IsBST(Root);
 
-        private bool IsBST(Node curNode, bool res = false, int min = int.MinValue, int max = int.MaxValue) {
-            if (curNode == null) return res;
-
+        private bool IsBST(Node curNode, int min = int.MinValue, int max = int.MaxValue) {
+            
             if (curNode.Data <= min || curNode.Data >= max) return false;
 
-          
+            if (curNode.Left != null) if(!IsBST(curNode.Left, min, curNode.Data)) return false;
 
-            if (curNode.Left != null) if(!IsBST(curNode.Left, res, min, curNode.Data)) return false;
-
-            if (curNode.Right != null) if (!IsBST(curNode.Right, res, curNode.Data, max)) return false;  
+            if (curNode.Right != null) if (!IsBST(curNode.Right, curNode.Data, max)) return false;  
 
             return true;
         }
