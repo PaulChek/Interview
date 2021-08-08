@@ -65,6 +65,16 @@ namespace Trees {
             Console.WriteLine("---------------Amount of nodes----------------");
             var total = tree.AmountOfNodesInCompleteTree();
             Console.WriteLine(">>>>>>>> (" + total + ") <<<<<<<");
+
+
+
+
+            Console.WriteLine("---------------Is BST----------------");
+            Console.WriteLine(tree.Root.Right.Left.Data);
+            Console.WriteLine(tree.IsBST());
+
+
+
         }
     }
     class BTree {
@@ -86,6 +96,21 @@ namespace Trees {
             return node;
         }
 
+        public bool IsBST() => IsBST(Root);
+
+        private bool IsBST(Node curNode, bool res = false, int min = int.MinValue, int max = int.MaxValue) {
+            if (curNode == null) return res;
+
+            if (curNode.Data <= min || curNode.Data >= max) return false;
+
+          
+
+            if (curNode.Left != null) if(!IsBST(curNode.Left, res, min, curNode.Data)) return false;
+
+            if (curNode.Right != null) if (!IsBST(curNode.Right, res, curNode.Data, max)) return false;  
+
+            return true;
+        }
 
         public void InOrder() => InOrder(Root);
         public int Depth() => Depth(Root, 0);
