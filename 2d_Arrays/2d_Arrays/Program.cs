@@ -12,6 +12,14 @@ namespace _2d_Arrays {
                 { 0, 2, 3, 1, 3 },
                 { 0, 0, 0, 0, 0 }
             };
+            var islands = new int[,] {
+                { 1, 1, 0, 1, 0 },
+                { 1, 1, 0, 1, 0 },
+                { 1, 0, 1, 1, 0 },
+                { 1, 0, 0, 0, 0 },
+                { 0, 1, 1, 1, 1 }
+            }; //3
+
             List<int> flat = FlatArray(arr2d);
 
             List<int> flat2 = FlatArray2(arr2d);
@@ -22,6 +30,12 @@ namespace _2d_Arrays {
             var steps = SolveTaskWithShortestPathIn2dArray.AmountOfSteps(arr2d);
 
             Console.WriteLine(string.Join(" ", steps));
+
+            //task about islands
+
+            int iss = HowManyIslands.Solve(islands);
+
+            Console.WriteLine("Amount of Islands: " + iss);
         }
 
         private static List<int> FlatArray2(int[,] arr2d) {
