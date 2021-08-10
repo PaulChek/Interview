@@ -83,7 +83,7 @@ namespace _2d_Arrays {
                     if (matrx[r, c] == 1) Console.ForegroundColor = ConsoleColor.Yellow;
                     if (matrx[r, c] == 2) Console.ForegroundColor = ConsoleColor.DarkRed;
                     if (matrx[r, c] == 0) Console.ForegroundColor = ConsoleColor.DarkGray;
-                    Console.Write(matrx[r, c]);
+                    Console.Write(matrx[r, c]<0?"| ":matrx[r,c]== 0?"* ": matrx[r, c] +" ");
                     Console.ResetColor();
                 }
                 Console.WriteLine();

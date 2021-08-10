@@ -19,7 +19,12 @@ namespace _2d_Arrays {
                 { 1, 0, 0, 0, 0 },
                 { 0, 1, 1, 1, 1 }
             }; //3
-
+            var shortestPath = new int[,] {
+                { int.MaxValue, -1 ,  0, int.MaxValue},
+                { int.MaxValue, int.MaxValue ,int.MaxValue, -1},
+                { int.MaxValue, -1 , int.MaxValue, -1},
+                {  0, -1 , int.MaxValue, int.MaxValue}
+            };
             var oranges = new int[,] {
                 { 2, 1, 0, 1, 0, 0, 0, 0, 1, 1 },
                 { 1, 1, 0, 1, 0, 0, 0, 0, 1, 1 },
@@ -49,9 +54,16 @@ namespace _2d_Arrays {
 
 
             //rotten orangrs
-            int min = RottingOranges.Solve(oranges);
+            // int min = RottingOranges.Solve(oranges);
 
-            Console.WriteLine("Take minutes: " + min);
+            //Console.WriteLine("Take minutes: " + min);
+
+
+            //shortest path
+            var paths = ShortestPath.Find(shortestPath);
+
+
+            RottingOranges.ShowMatrix(paths);
         }
 
         private static List<int> FlatArray2(int[,] arr2d) {
@@ -95,5 +107,4 @@ namespace _2d_Arrays {
             return res;
         }
     }
-
 }
