@@ -49,7 +49,6 @@ namespace _2d_Arrays {
         }
 
         private static (int row, int col) Find1(int[,] arr, bool[,] seen) {
-
             for (int r = 0; r < arr.GetLength(0); r++)
                 for (int c = 0; c < arr.GetLength(1); c++)
                     if (!seen[r, c] && arr[r, c] == 1) return (r, c);
