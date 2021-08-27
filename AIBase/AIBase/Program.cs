@@ -23,7 +23,7 @@ namespace AIBase {
             //GeneticAlgorithm.Population population = new GeneticAlgorithm.Population(100);
             //int epoch = 0;
             //var genAlg = new GeneticAlgorithm();
-           
+
             //while ( population.GetFittest().Fitness != GeneticAlgorithm.MAX_FITNESS) {
             //    epoch++;
             //    Console.WriteLine($"epoch:{epoch} fittest:{population.GetFittest().Fitness}");
@@ -35,7 +35,20 @@ namespace AIBase {
 
 
             //Swarm intellegence
-           
+            //var n = new Swarm_Intellegence.ParticleSwarmOptimization();
+
+            //n.Solve();
+            var str = "123";
+          string res =  EvenOrOdd(str);
+            Console.WriteLine(res);
+
+
+        }
+
+        public static string EvenOrOdd(string str) {
+            int odd = 0, even = 0, tmp = 0;
+            Array.ForEach(str.ToCharArray(), v => _= ((tmp = int.Parse(v + "") )& 1) == 1 ? odd+=tmp : even+=tmp);
+            return even>odd? "Even is greater than Odd":even==odd? "Even and Odd are the same" : "Odd is greater than Even";
         }
     }
 }

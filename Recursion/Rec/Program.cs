@@ -27,6 +27,16 @@ namespace Rec {
 
             var ns = Regex.Replace(s[0], @"\w(?=[^$])", "$&***");
             Console.WriteLine(ns);
+
+            int fib = Fib(8);
+
+            Console.WriteLine(fib);
+        }
+        private static Dictionary<int, int> cash = new Dictionary<int, int>();
+        private static int Fib(int n) {
+            if (n <= 1) return n;
+            if (cash.ContainsKey(n)) return cash[n];
+            return Fib(n - 1) + Fib(n - 2);
         }
 
         private static IEnumerable<string> FindDepth(string s) {
